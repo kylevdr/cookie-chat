@@ -5,7 +5,12 @@ angular.module('chatroom').service('messageService', function($http){
   //The url for the get request should be 'http://practiceapi.devmounta.in/api/chats'
   //Be sure to return whatever gets returned from $http so you can call .then in your controller.
 
-
+this.getMessages = function() {
+  return $http({
+    method: 'GET',
+    url: 'http://practiceapi.devmounta.in/api/chats'
+  });
+};
 
 
   //On the line below create the postMessage method. This method will add data to the backend server.
@@ -13,7 +18,37 @@ angular.module('chatroom').service('messageService', function($http){
   //Because we're making a POST request, we need a way to tell the server the data we want to give it, in your $http call (along with url and method) have a data property which has a value that is equal to another object with a key of message and a value of the message being passed to parse. IE data: {message: yourMessage}
   //Also, remember that $http returns a promise. So if you return the whole $http call (return $http(...)), you can then use .then in your controller.
 
+this.postMessage = function(newMessage, cookieType) {
+  $http({
+    method: 'POST',
+    url: 'http://practiceapi.devmounta.in/api/chats',
+    data: {message: newMessage, cookie: cookieType}
+  });
+};
 
+/*
+this.changeCookie = function(cookieType) {
+  $http({
+    method: 'PUT',
+    url: 'http://practiceapi.devmounta.in/api/?cookies=' + cookieType
+  });
+  var cookieObject = {
+    cookieType: 3,
+    macaroons: "yes"
+  }
 
+  var config = {
+    cookies: cookieObject
+  }
+
+  $http.put('http://practiceapi.devmounta.in/api/', cookieObject, cookies);
+}*/
+
+this.getCookies = function() {
+  return $http({
+    method: 'GET',
+    url: 'http://practiceapi.devmounta.in/api/cookies'
+  });
+}
 
 });

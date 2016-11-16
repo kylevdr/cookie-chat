@@ -7,6 +7,7 @@ body {
   height: 95%;
   width: 100%;
   font-family: sans-serif;
+  background: maroon;
 }
 
 .main-container {
@@ -15,6 +16,7 @@ body {
   background: rgba(255, 255, 255, 0.86);
   padding: 5px;
   border-radius: 10px;
+  background: white;
 }
 
 .main-container h1 {
@@ -24,6 +26,14 @@ body {
 .text-box {
   margin: 0px auto;
   width: 40%;
+}
+
+.message {
+  /*border: 3px solid #777;*/
+  margin: 10px;
+  background: #dddddd;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #aaa inset;
 }
 
 p{

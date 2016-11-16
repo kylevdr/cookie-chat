@@ -6,14 +6,22 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body ng-controller="mainCtrl">
-    <div class="main-container">
+    <div class="main-container well">
       <h1> DevMountain Chat Room </h1>
-      <form ng-submit="postMessage(message)">
+      <!--{{cookieList}}-->
+      <form ng-submit="changeCookie(cookieType)">
+      <input class="form-control text-box" type="text" ng-model="cookieType" placeHolder="Cookie Type">
+      </form>
+      <form ng-submit="postMessage(message, cookieType)">
         <input class="form-control text-box" type="text" ng-model="message" placeholder="Message">
       </form>
+      <input class="form-control text-box" type="text" ng-model="searchTerm" placeholder="Search">
       <div class="messages-container">
-        <p ng-repeat="message in messages ">
-          {{message.message}} </p>
+        <div class="message" ng-repeat="message in messages | filter: searchTerm | orderBy : 'createdAt' : true">
+          <p>{{message.message}}</p>
+          <p>Cookie: {{message.cookie}}</p>
+          <p>Time: {{message.createdAt | date:'short'}}</p>
+        </div>
       </div>
     </div>
     <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.19.min.js"></script>
