@@ -4,10 +4,10 @@ html {
 }
 
 body {
-  height: 95%;
+  height: 100%;
   width: 100%;
   font-family: sans-serif;
-  background: maroon;
+  background: linear-gradient(to right, maroon,#bf033c, maroon);
 }
 
 .main-container {
@@ -17,6 +17,7 @@ body {
   padding: 5px;
   border-radius: 10px;
   background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .4);
 }
 
 .main-container h1 {
@@ -31,9 +32,9 @@ body {
 .message {
   /*border: 3px solid #777;*/
   margin: 10px;
-  background: #dddddd;
+  background: #eee;
   border-radius: 5px;
-  box-shadow: 0 0 5px #aaa inset;
+  box-shadow: 0 0 5px #bbb inset;
 }
 
 p{
